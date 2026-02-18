@@ -12,14 +12,16 @@ tag_version:
   image: alpine:latest
   before_script:
     - apk add --no-cache git
+    - git config --global user.email "ci@gitlab.com"
+    - git config --global user.name "GitLab CI"
   only:
     - main
   except:
     - tags
   script:
-    # Get the latest tag, or use v0.0.0 if none exists
+    # Get the latest tag, or use v0.1.0 if none exists
     - |
-      LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+      LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.1.0")
       echo "Latest tag: $LATEST_TAG"
       
       # Extract version numbers (remove 'v' prefix)
@@ -44,6 +46,8 @@ tag_manual:
   image: alpine:latest
   before_script:
     - apk add --no-cache git
+    - git config --global user.email "ci@gitlab.com"
+    - git config --global user.name "GitLab CI"
   only:
     - main
   script:
