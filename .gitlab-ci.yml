@@ -21,6 +21,8 @@ tag_version:
   script:
     # Get the latest tag, or use v0.1.0 if none exists
     - |
+      git remote set-url origin "https://oauth2:${CI_JOB_TOKEN}@gitlab.com/swytchcode/go-runtime.git"
+      
       LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.1.0")
       echo "Latest tag: $LATEST_TAG"
       
@@ -52,6 +54,8 @@ tag_manual:
     - main
   script:
     - |
+      git remote set-url origin "https://oauth2:${CI_JOB_TOKEN}@gitlab.com/swytchcode/go-runtime.git"
+      
       # Get the latest tag, or use v0.1.0 if none exists
       LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.1.0")
       echo "Latest tag: $LATEST_TAG"
