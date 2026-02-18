@@ -105,7 +105,7 @@ This library **must not** and **does not**:
 
 It is a pipe, not a brain.
 
-## For Cursor / Claude / IDE agents
+## For Cursor / Claude / Other agents
 
 Generate code that uses this runtime instead of subprocess boilerplate.
 
