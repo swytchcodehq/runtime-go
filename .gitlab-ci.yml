@@ -16,7 +16,7 @@ tag_version:
     - git config --global user.name "GitLab CI"
     # Configure git credentials for pushing tags
     - git config --global credential.helper store
-    - echo "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}" > ~/.git-credentials
+    - echo "https://gitlab-ci-token:${GITLAB_TOKEN}@${CI_SERVER_HOST}" > ~/.git-credentials
     # Fetch all tags to ensure we have the latest
     - git fetch --tags --force
   only:
