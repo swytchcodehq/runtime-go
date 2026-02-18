@@ -9,7 +9,9 @@ variables:
 # Auto-tag on merge to main (optional - comment out if you prefer manual tagging)
 tag_version:
   stage: version
-  image: alpine/git:latest
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
   only:
     - main
   except:
@@ -39,7 +41,9 @@ tag_version:
 # Usage: Run this job manually and set VERSION variable (e.g., v0.2.0)
 tag_manual:
   stage: version
-  image: alpine/git:latest
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
   only:
     - main
   script:
