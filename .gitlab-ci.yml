@@ -71,6 +71,15 @@ tag_manual:
       NEW_VERSION="v${MAJOR}.${MINOR}.${NEW_PATCH}"
       
       echo "Creating tag: $NEW_VERSION"
+      
+      # Check if tag already exists
+      if git rev-parse "$NEW_VERSION" >/dev/null 2>&1; then
+        echo "Tag $NEW_VERSION already exists. Incrementing further..."
+        NEW_PATCH=$((NEW_PATCH + 1))
+        NEW_VERSION="v${MAJOR}.${MINOR}.${NEW_PATCH}"
+        echo "Using new version: $NEW_VERSION"
+      fi
+      
       git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
       git push origin "$NEW_VERSION"
   when: manual
