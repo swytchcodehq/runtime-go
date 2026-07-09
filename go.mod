@@ -1,3 +1,3 @@
-module gitlab.com/swytchcode/go-runtime
+module github.com/swytchcodehq/swytchcode-agent-sdk-go
 
 go 1.21
