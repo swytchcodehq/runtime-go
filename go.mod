@@ -1,3 +1,3 @@
-module github.com/swytchcodehq/swy-runtime-go
+module github.com/swytchcodehq/runtime-go
 
 go 1.21
