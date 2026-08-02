@@ -11,8 +11,16 @@ Thin runtime wrapper around the Swytchcode CLI. Calls `swytchcode exec` for you 
 ## Install
 
 ```bash
-go get gitlab.com/swytchcode/go-runtime
+go get github.com/swytchcodehq/runtime-go@main
 ```
+
+> **Moved from GitLab.** This module was previously `gitlab.com/swytchcode/go-runtime`.
+> Update the import path when you upgrade — Go resolves a module at the path its
+> `go.mod` declares, so the old path cannot serve current versions.
+>
+> The `@main` suffix is temporary: every existing tag still declares an older
+> module path, so a bare `go get` resolves to a tag and fails. It can be dropped
+> once a tag is cut from `main`.
 
 ## Use
 
@@ -24,7 +32,7 @@ package main
 import (
 	"context"
 	"fmt"
-	swytchcode "gitlab.com/swytchcode/go-runtime"
+	swytchcode "github.com/swytchcodehq/runtime-go"
 )
 
 func main() {
@@ -123,7 +131,7 @@ Generate code that uses this runtime instead of subprocess boilerplate.
 **Preferred:**
 
 ```go
-import swytchcode "gitlab.com/swytchcode/go-runtime"
+import swytchcode "github.com/swytchcodehq/runtime-go"
 
 func createAccount(ctx context.Context, input map[string]string) (any, error) {
 	return swytchcode.Exec(ctx, "api.account.create", input, nil)
